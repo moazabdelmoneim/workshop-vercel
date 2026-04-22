@@ -2,8 +2,7 @@ import express from 'express'
 import { authRouter, userRouter, orderRouter } from './modules/index.js'
 import { appConfig} from '../config/config.service.js'
 import connectDb from './DB/db.connection.js'
-const bootstrap = ()=>{
-	const app = express()
+const bootstrap = (app)=>{
 	app.use(express.json())
 	app.use('/uploads',express.static('uploads'))
 	app.use("/auth", authRouter)
