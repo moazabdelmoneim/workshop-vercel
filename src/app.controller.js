@@ -2,7 +2,7 @@ import express from 'express'
 import { authRouter, userRouter, orderRouter } from './modules/index.js'
 import { appConfig} from '../config/config.service.js'
 import connectDb from './DB/db.connection.js'
-const bootstrap = (app)=>{
+const bootstrap = async (app)=>{
 	app.use(express.json())
 	app.use('/uploads',express.static('uploads'))
 	app.use("/auth", authRouter)
@@ -11,7 +11,7 @@ const bootstrap = (app)=>{
 
 
 
-	connectDb()
+	await connectDb()
 	app.use((err,req,res,next)=>{
 		const statusCode = err.cause?.status || 500
 		return res.status(statusCode).json({
