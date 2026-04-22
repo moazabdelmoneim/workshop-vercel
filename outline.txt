@@ -1,0 +1,7 @@
+// schema orders // done
+insert more than one order // done
+opulate vs aggregation
+
+// recap sdlc
+
+// qna
