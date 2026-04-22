@@ -3,7 +3,10 @@ import userModel from "../../DB/models/user.model.js"
 export const signup = async(inputs)=>{
 	//check if exists
 	const {email} =inputs
+	console.log(inputs);
 	const userExists = await userModel.findOne({email})
+	console.log(userExists);
+	
 	// if exists return error 409
 	if(userExists){
 		throw new Error("invalid email",{cause:{status:409}})
